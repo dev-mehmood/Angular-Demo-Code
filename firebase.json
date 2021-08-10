@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/angular-material-ngrx-auth",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

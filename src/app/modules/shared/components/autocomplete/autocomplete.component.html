@@ -1,0 +1,21 @@
+<ng-container
+[formGroup]="form">
+  <input
+    id="input"
+    type="text"
+    formControlName="input"
+    class="input"
+
+    (focusin)="onFocusEvent($event)"
+  />
+
+  <div class="dropdown"  tabindex="0" [ngClass]="{'open':openDropdown}" >
+    <div (click)="onChildClick(row_)" *ngFor="let row_ of data | multifilter : searchFilter" class="row">
+      <ng-container >
+        {{ row_[options.show] }}
+      </ng-container>
+      
+    </div>
+  </div>
+
+</ng-container>

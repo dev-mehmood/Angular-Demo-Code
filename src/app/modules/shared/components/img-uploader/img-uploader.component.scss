@@ -1,0 +1,61 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: thin solid #4da8d8;
+  border-radius: 5px;
+  flex-direction: row;
+  min-height: 120px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+}
+mat-progress-spinner {
+    position: absolute;
+}
+:host ::ng-deep {
+    svg {
+        stroke: blue !important;
+    }
+}
+.close{
+    height: 16px;
+    position: absolute;
+    background: #9f4848;
+    border: solid 3px #e91010;
+    border-radius: 300px;
+    width: 16px;
+    right: -2px;
+    top: -2px;
+  i {
+    position: absolute;
+    top: .5px;
+    color: black;
+    font-size: 10px;
+    text-shadow: 1px 0px #363131;
+  } 
+}
+button {
+    flex: 1 1 50%;
+
+}
+.img {
+    position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 80px;
+  max-width: 80px;
+  width: 80px;
+  flex: 0 0 80px;
+  margin: 10px;
+  border: solid 2px lightblue;
+  border-radius: 300px;
+}

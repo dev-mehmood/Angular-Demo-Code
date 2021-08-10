@@ -1,0 +1,20 @@
+<ng-container  *ngIf="(auth$ | async)?.isLoggedIn">
+    <mat-toolbar color="primary">
+        <span routerLink="/home" class="logo">App</span>
+        <ng-container>
+          <div class="link">
+            <a routerLink="/products" class="loginLogout">
+              <span>Product</span>
+            </a>
+          </div>
+          <div class="link login">
+            <a (click)="logout()" class="loginLogout">
+              <span>Logout</span>
+            </a>
+          </div>
+        </ng-container>
+      </mat-toolbar>
+</ng-container>
+
+
+<router-outlet></router-outlet>

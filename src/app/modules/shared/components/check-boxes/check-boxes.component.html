@@ -1,0 +1,36 @@
+<div
+  *ngIf="options?.form?.invalid && options?.form?.dirty"
+  class="alert alert-danger"
+>
+  <div *ngIf="options?.form?.errors.required">
+    Please check at least one field.
+  </div>
+</div>
+<div class="shop-form__product-category-checkbox">
+  <ng-container
+    *ngFor="
+      let item of options?.formData | async | multifilter: options.searchFilter;
+      let i = index
+    "
+  >
+    <ng-container
+      *ngTemplateOutlet="items; context: { item: item }"
+    ></ng-container>
+  </ng-container>
+</div>
+
+<ng-template #items let-item="item">
+  <div class="form-check" >
+    <input
+      class="form-check-input"
+      (change)="onChange($event, 'items')"
+      type="checkbox"
+      [value]="item.id"
+      [checked]="options?.form?.value?.includes(item?.id)"
+    />
+
+    <label class="form-check-label label-font">
+      {{ item.title }} <i class="cil-fullscreen"></i>
+    </label>
+  </div>
+</ng-template>

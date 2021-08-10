@@ -1,0 +1,30 @@
+<div class="products-listing__container">
+    <div class="header__wrapper">
+        <h2>Products</h2>
+        <div class="link login">
+            <a routerLink="/products/form" class="loginLogout">
+              <span>Create New Product</span>
+            </a>
+          </div>
+    </div>
+
+    <!-- Products Listing -->
+    <div class="products-list__wrapper">
+        <div class="card" 
+        (click)="navigate(product)"
+         *ngFor="let product of $products | async">
+            <img class="card-img-top" src="https://picsum.photos/200/300/?blur=2" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{product.title}}</h5>
+                <p class="card-text">
+                    <i class="cil-balance-scale"></i> 5KG
+                </p>
+                <p class="card-text">
+                    <i class="cil-money"></i> 200 PKR
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+

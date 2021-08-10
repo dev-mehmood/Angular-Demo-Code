@@ -1,0 +1,56 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <!-- Select File -->
+
+  <!-- Image Preview -->
+
+  <div class="wrapper">
+    <ng-container *ngIf="form.controls.length">
+      <ng-container *ngFor="let file of form.controls; let i = index">
+        <ng-container *ngIf="file.value.url && file.value.url !== ''">
+          <div
+            class="img"
+            [ngStyle]="{ 'background-image': 'url(' + file.value.url + ')' }"
+          >
+            <mat-progress-spinner
+              diameter="80"
+              mode="determinate"
+              [value]="file?.value?.progress | async"
+            >
+            </mat-progress-spinner>
+            <div class="close" (click)="removeImage(i)">
+              <i (click)="removeImage(i)">x</i>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <!-- Assign Image Alt -->
+  <input
+    #fileinput
+    style="display: none"
+    multiple="true"
+    type="file"
+    accept="file_type | audio/* | video/* | image/* | media_type"
+    (change)="showPreview($event)"
+  />
+
+  <button
+    mat-flat-button
+    type="button"
+    (click)="fileinput.click()"
+    class="btn btn-primary"
+  >
+    Choose File
+  </button>
+
+  <button
+    *ngIf="showSubmit"
+    type="submit"
+    mat-flat-button
+    class="btn btn-primary"
+  >
+    submit
+  </button>
+</form>
